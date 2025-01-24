@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buku Tamu</title>
+  <style>
+    table {
+      border: 2px solid #000; /* Border hitam untuk tabel */
+      border-collapse: collapse; /* Gabungkan border sel */
+      width: 50%; /* Lebar tabel */
+      margin: 20px auto; /* Tengah halaman */
+      background-color: #1261f5; /* Warna latar tabel tetap putih */
+    }
+
+
+
+    th {
+      background-color: #1261f5; /* Warna latar header */
+    }
+  </style>
+</head>
+<body style="background-color: #07cdf0;"> <!-- Latar belakang halaman -->
+  <div align="center">
+    <form name="myform" method="post">
+      <table>
+        <tr>
+          <th colspan="3">BUKU TAMU</th>
+        </tr>
+        <tr>
+          <td>Nama</td>
+          <td>:</td>
+          <td><input type="text" name="Nama"></td>
+        </tr>
+        <tr>
+          <td>Alamat</td>
+          <td>:</td>
+          <td><input type="text" name="Alamat"></td>
+        </tr>
+        <tr>
+          <td>No. Telp</td>
+          <td>:</td>
+          <td><input type="text" name="No.Telp"></td>
+        </tr>
+        <tr>
+          <td>Pilihan Sebagai</td>
+          <td>:</td>
+          <td>
+            <select name="state">
+              <option value="siswa">Siswa</option>
+              <option value="guru">Guru</option>
+              <option value="umum" selected>Umum</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Jenis Kelamin</td>
+          <td>:</td>
+          <td>
+            <input type="radio" name="jenis_kelamin" value="L"> Laki-Laki &nbsp;
+            <input type="radio" name="jenis_kelamin" value="P"> Perempuan
+          </td>
+        </tr>
+        <tr>
+          <td>Komentar</td>
+          <td>:</td>
+          <td><textarea name="komentar" rows="5" cols="30"></textarea></td>
+        </tr>
+        <tr>
+          <td><input type="submit" name="submit" value="Simpan"></td>
+          <td></td>
+          <td>
+            <input type="reset" name="reset" value="Ulangi">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <script>
+    var myform = document.forms['myform'];
+    myform.onsubmit = function() {
+      if (this.elements['Nama'].value == '') {
+        alert('Nama belum diisi !');
+      } else if (this.elements['Alamat'].value == '') {
+        alert('Alamat belum diisi !');
+      } else if (this.elements['No.Telp'].value == '') {
+        alert('No. Telp belum diisi !');
+      } else if (!this.elements['jenis_kelamin'][0].checked && 
+                 !this.elements['jenis_kelamin'][1].checked) {
+        alert('Jenis kelamin belum dipilih !');
+      } else if (this.elements['komentar'].value == '') {
+        alert('Komentar belum diisi !');
+      } else {
+        document.write('Sukses !');
+      }
+      return false; // Prevent form submission for demonstration
+    }
+  </script>
+</body>
+</html>
